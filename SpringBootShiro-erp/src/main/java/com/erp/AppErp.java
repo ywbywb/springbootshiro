@@ -12,6 +12,6 @@ public class AppErp {
 		SpringApplication.run(AppErp.class, args);
 
 		
-	}
+	}//ces1
 
 }
