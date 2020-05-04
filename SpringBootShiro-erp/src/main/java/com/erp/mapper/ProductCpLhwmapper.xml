@@ -20,10 +20,24 @@
   #{productmanager},
   #{Registrant},
   #{Filingtime},
-  #{Toexamine},
+  DEFAULT,
   #{Reviewedby}
   )
   </insert>
+  
+  <!-- 产品类别查询 -->
+  <select id="Selectcplb" resultType="categoryYWB">
+  select * from category
+  </select>
+  
+  <!-- 产品档次查询 -->
+  <select id="Selectdcjb" resultType="GradelevelYWB">
+   select * from Gradelevel
+  </select>
+    <!-- 产品经理 -->
+  <select id="Selectcpjl" resultType="ProductmanagerYWB">
+  select * from productmanager
+  </select>
   
   </mapper>
   

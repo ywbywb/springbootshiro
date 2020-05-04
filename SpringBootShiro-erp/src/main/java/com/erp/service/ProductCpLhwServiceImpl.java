@@ -8,6 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.erp.mapper.ProductCpLhwmapper;
 import com.erp.pojo.AregistrationformYWB;
+import com.erp.pojo.CategoryYWB;
+import com.erp.pojo.GradelevelYWB;
+import com.erp.pojo.ProductmanagerYWB;
 @Transactional
 @Service
 public class ProductCpLhwServiceImpl implements ProductCpLhwService{
@@ -24,13 +27,37 @@ public class ProductCpLhwServiceImpl implements ProductCpLhwService{
 	@Override
 	public int dangansh(AregistrationformYWB areform) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.dangansh(areform);
 	}
 
 	@Override
 	public List<AregistrationformYWB> Selectform() {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.Selectform();
 	}
+
+	@Override
+	public List<CategoryYWB> Selectcplb() {
+		// TODO Auto-generated method stub
+		return mapper.Selectcplb();
+	}
+
+
+
+	@Override
+	public List<ProductmanagerYWB> Selectcpjl() {
+		// TODO Auto-generated method stub
+		return mapper.Selectcpjl();
+	}
+
+	@Override
+	public List<GradelevelYWB> Selectdcjb() {
+		// TODO Auto-generated method stub
+		return mapper.Selectdcjb();
+	}
+
+	
+
+
 
 }
