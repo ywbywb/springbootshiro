@@ -51,9 +51,9 @@
 					             </div>
 					              <div class="col-md-4">
 					            <label for="message-text" class=" " style="color: blue;">档次级别:</label>
-					         <select id="Prob" style="width: 200px" v-model="Productlevel">
+					         <select id="Proa" style="width: 200px" v-model="Productlevel">
 					           <option value="">请选择</option>
-					           <option :value="i.id" v-for="i in listb" :key="i.id">{{i.username}}</option>
+					           <option :value="i.gradelevelid" v-for="i in listb" :key="i.gradelevelid">{{i.gradelevelname}}</option>
 					           </select>
 					            </div>
 					             <div class="col-md-4">
@@ -73,7 +73,7 @@
 					             
 					             <div class="col-md-4">
 					            <label for="message-text" class="control-label" style="color: blue;">产品经理:</label>
-					           <select id="Proc" style="width: 200px" v-model="productmanager">
+					           <select id="Proa" style="width: 200px" v-model="productmanager">
 					           <option value="">请选择</option>
 					           <option :value="i.productmanagerid" v-for="i in listc" :key="i.productmanagerid">{{i.productmanagername}}</option>
 					           </select>
@@ -147,9 +147,9 @@
 					ProductID:'',
 					Productname:'',
 					Productclassification:'',
-					Productlevel:'',
 					manufacturer:'',
 					Unitmeasurement:'',
+					Productlevel:'',
 					Measuredvalue:'',
 					guaranteedate:'',
 					ddescribe:'',
@@ -166,7 +166,7 @@
 				},
 				mounted(){//初始化显示完成调用
 					this.category()
-					this.Gradelev()
+					this.Gradelevl()
 					this.productmanage()
 				},
 				methods:{
@@ -179,7 +179,7 @@
 							console.log("请求失败")
 						})
 					},
-					Gradelev(){
+					Gradelevl(){
 						//查询档次级别
 						axios.get("Selectdcjb").then(res=>{
 							console.log(res)

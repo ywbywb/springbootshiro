@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.pojo.AregistrationformYWB;import com.erp.pojo.CategoryYWB;
-import com.erp.pojo.GradelevelYWB;
+import com.erp.pojo.Gradelevel;
 import com.erp.pojo.ProductmanagerYWB;
 import com.erp.pojo.Users;
 import com.erp.service.ProductCpLhwService;
@@ -37,7 +37,8 @@ public class ProductCpLhwController {
 	//产品档次级别
     @RequestMapping("/Selectdcjb")
     @ResponseBody
-    public List<Users> Selectdcjb(){
+    public List<Gradelevel> Selectdcjb(){
+    	System.out.println("12345");
 		return service.Selectdcjb();
     }
     

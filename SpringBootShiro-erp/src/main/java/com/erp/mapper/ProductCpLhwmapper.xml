@@ -31,8 +31,8 @@
   </select>
   
   <!-- 产品档次查询 -->
-  <select id="Selectdcjb" resultType="Users">
-   select * from user
+  <select id="Selectdcjb" resultType="Gradelevel">
+   select * from Gradelevel
   </select>
     <!-- 产品经理 -->
   <select id="Selectcpjl" resultType="ProductmanagerYWB">
