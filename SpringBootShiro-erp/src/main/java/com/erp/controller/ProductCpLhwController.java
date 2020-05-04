@@ -35,6 +35,7 @@ public class ProductCpLhwController {
     @RequestMapping("/Selectdcjb")
     @ResponseBody
     public List<GradelevelYWB> Selectdcjb(){
+    	System.out.println(service.Selectdcjb());
 		return service.Selectdcjb();
     }
 	//产品经理

@@ -23,6 +23,10 @@ public class CategoryYWB {
 	public CategoryYWB() {
 		super();
 	}
+	@Override
+	public String toString() {
+		return "CategoryYWB [categoryid=" + categoryid + ", categoryname=" + categoryname + "]";
+	}
 	
 	
 

@@ -166,7 +166,7 @@
 				},
 				mounted(){//初始化显示完成调用
 					this.category()
-					this.Gradelev()
+					this.Gradelevl()
 					this.productmanage()
 				},
 				methods:{
@@ -179,7 +179,7 @@
 							console.log("请求失败")
 						})
 					},
-					Gradelev(){
+					Gradelevl(){
 						//查询档次级别
 						axios.get("Selectdcjb").then(res=>{
 							console.log(res)
