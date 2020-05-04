@@ -6,6 +6,7 @@ import com.erp.pojo.AregistrationformYWB;
 import com.erp.pojo.CategoryYWB;
 import com.erp.pojo.GradelevelYWB;
 import com.erp.pojo.ProductmanagerYWB;
+import com.erp.pojo.Users;
 
 
 public interface ProductCpLhwService {
@@ -24,7 +25,7 @@ public interface ProductCpLhwService {
 		//产品类别查询
 		List<CategoryYWB> Selectcplb();
 		//产品档次级别查询
-		 List<GradelevelYWB> Selectdcjb();
+		List<Users> Selectdcjb();
 		//产品经理
 		List<ProductmanagerYWB> Selectcpjl();
 }

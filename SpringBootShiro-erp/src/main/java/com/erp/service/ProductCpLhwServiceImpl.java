@@ -11,6 +11,7 @@ import com.erp.pojo.AregistrationformYWB;
 import com.erp.pojo.CategoryYWB;
 import com.erp.pojo.GradelevelYWB;
 import com.erp.pojo.ProductmanagerYWB;
+import com.erp.pojo.Users;
 @Transactional
 @Service
 public class ProductCpLhwServiceImpl implements ProductCpLhwService{
@@ -51,10 +52,12 @@ public class ProductCpLhwServiceImpl implements ProductCpLhwService{
 	}
 
 	@Override
-	public List<GradelevelYWB> Selectdcjb() {
+	public List<Users> Selectdcjb() {
 		// TODO Auto-generated method stub
 		return mapper.Selectdcjb();
 	}
+
+	
 
 	
 

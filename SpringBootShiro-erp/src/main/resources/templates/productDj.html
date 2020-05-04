@@ -33,7 +33,7 @@
 					            <label for="message-text" class="control-label " style="color: blue;">产品类别:</label>
 					            <select id="Proa" style="width: 200px" v-model="Productclassification">
 					            <option value="">请选择</option>
-					            <option :value="a.categoryid" v-for="a in lista" :key="a.categoryid">{{a.categoryname}}</option>
+					            <option :value="i.categoryid" v-for="i in lista" :key="i.categoryid">{{i.categoryname}}</option>
 					            </select>
 					            </div>
 					            <div class="col-md-4">
@@ -50,11 +50,11 @@
 					             <input type="text" name="Unitmeasurement" v-model="Unitmeasurement"> 
 					             </div>
 					              <div class="col-md-4">
-					            <label for="message-text" class="control-label " style="color: blue;">档次级别:</label>
-					            <select id="Prob" style="width: 200px"   v-model="Productlevel">
-						    <option value="">请选择</option>
-							<option :value="b.Gradelevelid" v-for="b in listb" :key="b.Gradelevelid">{{b.Gradelevelname}}</option>
-						   </select>
+					            <label for="message-text" class=" " style="color: blue;">档次级别:</label>
+					         <select id="Prob" style="width: 200px" v-model="Productlevel">
+					           <option value="">请选择</option>
+					           <option :value="i.id" v-for="i in listb" :key="i.id">{{i.username}}</option>
+					           </select>
 					            </div>
 					             <div class="col-md-4">
 					            <label for="message-text" class="control-label" style="color: blue;">计量值:</label>
@@ -75,7 +75,7 @@
 					            <label for="message-text" class="control-label" style="color: blue;">产品经理:</label>
 					           <select id="Proc" style="width: 200px" v-model="productmanager">
 					           <option value="">请选择</option>
-					           <option :value="c.productmanagerid" v-for="c in listc" :key="c.productmanagerid">{{c.productmanagername}}</option>
+					           <option :value="i.productmanagerid" v-for="i in listc" :key="i.productmanagerid">{{i.productmanagername}}</option>
 					           </select>
 					            </div>
 					             <div class="col-md-4">
@@ -161,8 +161,8 @@
 					Toexamine:'等待审核',
 					Reviewedby:'',
 					lista:[],
-					listaa:[],
-					listc:[]
+					listc:[],
+					listb:[]
 				},
 				mounted(){//初始化显示完成调用
 					this.category()
@@ -183,7 +183,7 @@
 						//查询档次级别
 						axios.get("Selectdcjb").then(res=>{
 							console.log(res)
-							this.listaa=res.data
+							this.listb=res.data
 						}).catch(err=>{
 							console.log("请求失败")
 						})
