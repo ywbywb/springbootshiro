@@ -58,7 +58,7 @@
 					            </div>
 					             <div class="col-md-4">
 					            <label for="message-text" class="control-label" style="color: blue;">计量值:</label>
-					             <input type="text" name="Measuredvalue" v-model="Measuredvalue">
+					             <input type="text" name="measuredvalue" v-model="measuredvalue">
 					             </div> 
 					       
 					          </div>
@@ -150,7 +150,7 @@
 					manufacturer:'',
 					Unitmeasurement:'',
 					Productlevel:'',
-					Measuredvalue:'',
+					measuredvalue:'',
 					guaranteedate:'',
 					ddescribe:'',
 					marketvalue:'',
@@ -203,7 +203,7 @@
 						var Djrname=$("#djr").text()
 						  this.Registrant=Djrname
 						  
-						var file={productname:this.Productname,productclassification:this.Productclassification,productlevel:this.Productlevel,manufacturer:this.manufacturer,unitmeasurement:this.Unitmeasurement,Measuredvalue:this.Measuredvalue,guaranteedate:this.guaranteedate,ddescribe:this.ddescribe,marketvalue:this.marketvalue,carketvalue:this.carketvalue,productmanager:this.productmanager,registrant:this.Registrant,filingtime:this.Filingtime,toexamine:this.Toexamine,reviewedby:this.Reviewedby}
+						var file={productname:this.Productname,productclassification:this.Productclassification,productlevel:this.Productlevel,manufacturer:this.manufacturer,unitmeasurement:this.Unitmeasurement,measuredvalue:this.measuredvalue,guaranteedate:this.guaranteedate,ddescribe:this.ddescribe,marketvalue:this.marketvalue,carketvalue:this.carketvalue,productmanager:this.productmanager,registrant:this.Registrant,filingtime:this.Filingtime,toexamine:this.Toexamine,reviewedby:this.Reviewedby}
 			              
 						var Productnames={productname:this.Productname}
 						if(this.Productname==""){
