@@ -112,7 +112,7 @@
 					          </div>
 					            <div class="col-md-4">
 					            <label for="message-text" class="control-label" style="color: blue;">登记人:</label>
-					            <span th:text="${session.username}"> </span>
+					            <span th:text="${session.username}" v-model="Registrant" id="djr"> </span>
 					         </div>
 					           <div class="col-md-4">
 					              <label for="message-text" class="control-label" style="color: blue;">成本价:</label>
@@ -156,7 +156,7 @@
 					marketvalue:'',
 					carketvalue:'',
 					productmanager:'',
-					Registrant:'${session.username}',
+					Registrant:'',
 					Filingtime:'',
 					Toexamine:'等待审核',
 					Reviewedby:'',
@@ -198,10 +198,14 @@
 					},
 					add(){
 						var num=(Math.random()*9+1)*10000000000000000					
-						this.ProductID=num						
-						var file={ProductID:this.ProductID,Productname:this.Productname,Productclassification:this.Productclassification,Productlevel:this.Productlevel,manufacturer:this.manufacturer,Unitmeasurement:this.Unitmeasurement,Measuredvalue:this.Measuredvalue,guaranteedate:this.guaranteedate,ddescribe:this.ddescribe,marketvalue:this.marketvalue,carketvalue:this.carketvalue,productmanager:this.productmanager,Registrant:this.Registrant,Filingtime:this.Filingtime,Toexamine:this.Toexamine,Reviewedby:this.Reviewedby}
-					
-						var Productname={Productname:this.Productname}
+						this.ProductID=num	
+						
+						var Djrname=$("#djr").text()
+						  this.Registrant=Djrname
+						  
+						var file={productname:this.Productname,productclassification:this.Productclassification,productlevel:this.Productlevel,manufacturer:this.manufacturer,unitmeasurement:this.Unitmeasurement,Measuredvalue:this.Measuredvalue,guaranteedate:this.guaranteedate,ddescribe:this.ddescribe,marketvalue:this.marketvalue,carketvalue:this.carketvalue,productmanager:this.productmanager,registrant:this.Registrant,filingtime:this.Filingtime,toexamine:this.Toexamine,reviewedby:this.Reviewedby}
+			              
+						var Productnames={productname:this.Productname}
 						if(this.Productname==""){
 							alert("蓝色字体不能为空哦!!!")
 						}else if(this.Unitmeasurement==""){
@@ -227,7 +231,7 @@
 						}else if(this.carketvalue==""){
 							alert("蓝色字体不能为空哦!!!")
 						}else{
-						axios.post("SelectProductname",Productname).then(res=>{
+						axios.post("SelectProductname",file).then(res=>{
 							if(res.data>0){
 							alert("产品名称已存在");									
 							}else{

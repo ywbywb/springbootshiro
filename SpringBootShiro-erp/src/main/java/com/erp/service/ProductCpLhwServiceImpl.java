@@ -2,6 +2,7 @@ package com.erp.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,6 +56,18 @@ public class ProductCpLhwServiceImpl implements ProductCpLhwService{
 	public List<Gradelevel> Selectdcjb() {
 		// TODO Auto-generated method stub
 		return mapper.Selectdcjb();
+	}
+
+	@Override
+	public int SelectProductname(AregistrationformYWB aname) {
+		// TODO Auto-generated method stub
+		return mapper.SelectProductname(aname);
+	}
+
+	@Override
+	public List<AregistrationformYWB> Selectzbsh(@Param("toexamine")String toexamine) {
+		// TODO Auto-generated method stub
+		return mapper.Selectzbsh(toexamine);
 	}
 
 

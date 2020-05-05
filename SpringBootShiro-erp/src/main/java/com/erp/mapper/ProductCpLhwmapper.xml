@@ -6,22 +6,23 @@
   
   <!-- 产品档案添加 -->
   <insert id="ProductAdd">
-  insert into aregistrationform values(null,
-  #{Productname},
-  #{Productclassification},
-  #{Productlevel},
+  insert into aregistrationform values(
+  null,
+  #{productname},
+  #{productclassification},
+  #{productlevel},
   #{manufacturer},
-  #{Unitmeasurement},
-  #{Measuredvalue},
+  #{unitmeasurement},
+  #{measuredvalue},
   #{guaranteedate},
   #{ddescribe},
   #{marketvalue},
   #{carketvalue},
   #{productmanager},
-  #{Registrant},
-  #{Filingtime},
+  #{registrant},
+  #{filingtime},
   DEFAULT,
-  #{Reviewedby}
+  #{reviewedby}
   )
   </insert>
   
@@ -38,6 +39,17 @@
   <select id="Selectcpjl" resultType="ProductmanagerYWB">
   select * from productmanager
   </select>
-  
+  <!-- 查询产品名称是否重复 -->
+  <select id="SelectProductname" resultType="int">
+    SELECT COUNT(Productname) FROM aregistrationform WHERE Productname=#{productname}
+  </select>
+<!--  产品档案准备审核-->
+<select id="Selectzbsh" resultType="AregistrationformYWB">
+SELECT a.*,b.categoryname,c.Gradelevelname,d.productmanagername   FROM  aregistrationform a,category b,Gradelevel c, productmanager d
+WHERE a.Productclassification=b.categoryid AND
+a.Productlevel=c.Gradelevelid AND
+a.productmanager=d.productmanagerid AND
+a.Toexamine=#{toexamine}
+</select>
   </mapper>
   

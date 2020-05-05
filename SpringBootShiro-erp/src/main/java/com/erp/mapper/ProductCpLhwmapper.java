@@ -30,4 +30,8 @@ public interface ProductCpLhwmapper {
     List<Gradelevel> Selectdcjb();
 	//产品经理
 	List<ProductmanagerYWB> Selectcpjl();
+	//查询产品名称是否重复
+	int SelectProductname(AregistrationformYWB aname);
+	//产品档案等待审核显示
+	List<AregistrationformYWB> Selectzbsh(String toexamine);
 }
