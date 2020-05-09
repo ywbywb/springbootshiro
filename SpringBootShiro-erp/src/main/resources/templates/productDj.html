@@ -51,7 +51,7 @@
 					             </div>
 					              <div class="col-md-4">
 					            <label for="message-text" class=" " style="color: blue;">档次级别:</label>
-					         <select id="Proa" style="width: 200px" v-model="Productlevel">
+					         <select id="Proa" style="width: 200px" v-model="productlevel">
 					           <option value="">请选择</option>
 					           <option :value="i.gradelevelid" v-for="i in listb" :key="i.gradelevelid">{{i.gradelevelname}}</option>
 					           </select>
@@ -149,7 +149,7 @@
 					Productclassification:'',
 					manufacturer:'',
 					Unitmeasurement:'',
-					Productlevel:'',
+					productlevel:'',
 					measuredvalue:'',
 					guaranteedate:'',
 					ddescribe:'',
@@ -199,11 +199,11 @@
 					add(){
 						var num=(Math.random()*9+1)*10000000000000000					
 						this.ProductID=num	
-						
+					   //alert(this.Productlevel)
 						var Djrname=$("#djr").text()
 						  this.Registrant=Djrname
 						  
-						var file={productname:this.Productname,productclassification:this.Productclassification,productlevel:this.Productlevel,manufacturer:this.manufacturer,unitmeasurement:this.Unitmeasurement,measuredvalue:this.measuredvalue,guaranteedate:this.guaranteedate,ddescribe:this.ddescribe,marketvalue:this.marketvalue,carketvalue:this.carketvalue,productmanager:this.productmanager,registrant:this.Registrant,filingtime:this.Filingtime,toexamine:this.Toexamine,reviewedby:this.Reviewedby}
+						var file={productname:this.Productname,productclassification:this.Productclassification,productlevel:this.productlevel,manufacturer:this.manufacturer,unitmeasurement:this.Unitmeasurement,measuredvalue:this.measuredvalue,guaranteedate:this.guaranteedate,ddescribe:this.ddescribe,marketvalue:this.marketvalue,carketvalue:this.carketvalue,productmanager:this.productmanager,registrant:this.Registrant,filingtime:this.Filingtime,reviewedby:this.Reviewedby}
 			              
 						var Productnames={productname:this.Productname}
 						if(this.Productname==""){
@@ -218,7 +218,7 @@
 							alert("蓝色字体不能为空哦!!!")
 						}else if(this.Productclassification==""){
 							alert("蓝色字体不能为空哦!!!")
-						}else if(this.Productlevel==""){
+						}else if(this.productlevel==""){
 							alert("蓝色字体不能为空哦!!!")
 						}else if(this.productmanager==""){
 							alert("蓝色字体不能为空哦!!!")
@@ -237,8 +237,8 @@
 							}else{
 								axios.post("ProductAdd",file).then(res=>{
 									if(res.data=="成功"){
-									alert("增加成功");		
-									this.Productname=this.Productclassification=this.manufacturer=this.Unitmeasurement=this.Productlevel=this.Measuredvalue=this.ddescribe=this.productmanager=this.marketvalue=this.Filingtime=this.Reviewedby=null
+									alert("增加成功");
+									location.reload();
 									}   
 								}).catch(err=>{   
 									alert("操作失败")

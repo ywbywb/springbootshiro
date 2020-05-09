@@ -1,11 +1,13 @@
 package com.erp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.pojo.AregistrationformYWB;import com.erp.pojo.CategoryYWB;
@@ -60,5 +62,48 @@ public class ProductCpLhwController {
 		System.out.println("刘海文");
 		int row=service.SelectProductname(aname);
 		return row;
+	}
+	//等待审核
+	@RequestMapping("/Selectzbsh")
+	@ResponseBody
+	public List<AregistrationformYWB> Selectzbsh(){
+		String toexamine="等待审核";
+		List<AregistrationformYWB> list = service.Selectzbsh(toexamine);
+		
+		System.out.println("111233");
+		return list;
+	}
+	//查询待审核总数
+	@RequestMapping("Selectdshzs")
+	@ResponseBody
+	public int Selectdshzs(@RequestParam("toexamine")String toexamine) {
+		return service.Selectdshzs(toexamine);
+		
+	}
+	//查询通过审核总数
+	@RequestMapping("Selecttgshzs")
+	@ResponseBody
+public int Selecttgshzs(@RequestParam("toexamine")String toexamine) {
+	return service.Selectdshzs(toexamine);
+	}
+	//档案审核
+	@RequestMapping("dangansh")
+	@ResponseBody
+	public String dangansh(@RequestBody AregistrationformYWB areform ) {
+		return service.dangansh(areform)>0?"成功":"失败";	
+	}
+	//查询显示的信息为通过复核的产品档案
+	@RequestMapping("/Selectcx")
+	@ResponseBody
+	public List<AregistrationformYWB> Selectcx(){
+		List<AregistrationformYWB> list=service.Selectcx("审核通过");
+		return list;
+	}
+	//产品档案查询
+	@RequestMapping("/Selectform")
+	@ResponseBody
+	public List<AregistrationformYWB> Selectform(){
+		List<AregistrationformYWB> list=service.Selectform();
+		return list;
 	}
 }

@@ -70,6 +70,24 @@ public class ProductCpLhwServiceImpl implements ProductCpLhwService{
 		return mapper.Selectzbsh(toexamine);
 	}
 
+	@Override
+	public int Selectdshzs(@Param("toexamine")String toexamine) {
+		// TODO Auto-generated method stub
+		return mapper.Selectdshzs(toexamine);
+	}
+
+	@Override
+	public int Selecttgshzs(@Param("toexamine")String toexamine) {
+		// TODO Auto-generated method stub
+		return mapper.Selectdshzs(toexamine);
+	}
+
+	@Override
+	public List<AregistrationformYWB> Selectcx(String toexamine) {
+		// TODO Auto-generated method stub
+		return mapper.Selectcx(toexamine);
+	}
+
 
 	
 

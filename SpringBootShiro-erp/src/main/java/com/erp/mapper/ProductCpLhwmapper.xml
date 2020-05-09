@@ -21,7 +21,7 @@
   #{productmanager},
   #{registrant},
   #{filingtime},
-  DEFAULT,
+  '等待审核',
   #{reviewedby}
   )
   </insert>
@@ -50,6 +50,40 @@ WHERE a.Productclassification=b.categoryid AND
 a.Productlevel=c.Gradelevelid AND
 a.productmanager=d.productmanagerid AND
 a.Toexamine=#{toexamine}
+</select>
+<!-- 查询待审核总数 -->
+<select id="Selectdshzs" resultType="int">
+SELECT COUNT(1) FROM aregistrationform WHERE Toexamine=#{toexamine}
+</select>
+<!-- 查询通过审核总数 -->
+<select id="Selecttgshzs" resultType="int">
+SELECT COUNT(1) FROM aregistrationform WHERE Toexamine=#{toexamine}
+</select>
+<!-- 产品档案审核 -->
+<update id="dangansh">
+UPDATE  aregistrationform  SET  productname=#{productname},manufacturer=#{manufacturer},
+productclassification=#{productclassification},productlevel=#{productlevel},productmanager=#{productmanager},unitmeasurement=#{unitmeasurement},
+ddescribe=#{ddescribe},measuredvalue=#{measuredvalue},filingtime=#{filingtime},marketvalue=#{marketvalue},
+carketvalue=#{carketvalue},guaranteedate=#{guaranteedate},Toexamine='审核通过',registrant=#{registrant}
+WHERE productID=#{productID}
+</update>
+<!-- 查询审核通过的信息 -->
+<select id="Selectcx" resultType="AregistrationformYWB">
+SELECT a.ProductID,a.Productname,a.manufacturer,b.categoryname,c.Gradelevelname,d.productmanagername
+FROM  aregistrationform a,category b,Gradelevel c,productmanager d
+WHERE a.Productclassification=b.categoryid AND
+      a.Productlevel=c.Gradelevelname AND
+      a.productmanager=d.productmanagerid AND
+      Toexamine=#{toexamine}
+</select>
+<!-- 产品档案查询 -->
+<select id="Selectform" resultType="AregistrationformYWB">
+      SELECT a.*,b.categoryname,c.Gradelevelname,d.productmanagername    
+FROM  aregistrationform a,category b,Gradelevel c,productmanager d 
+WHERE a.Productclassification=b.categoryid AND
+      a.Productlevel=c.Gradelevelid AND
+      a.productmanager=d.productmanagerid AND
+      a.Toexamine='审核通过'
 </select>
   </mapper>
   

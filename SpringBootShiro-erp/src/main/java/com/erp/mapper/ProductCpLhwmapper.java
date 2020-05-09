@@ -34,4 +34,10 @@ public interface ProductCpLhwmapper {
 	int SelectProductname(AregistrationformYWB aname);
 	//产品档案等待审核显示
 	List<AregistrationformYWB> Selectzbsh(String toexamine);
+	//查询待审核总数
+	int Selectdshzs(String toexamine);
+	//查询通过审核总数
+	int Selecttgshzs(String toexamine);
+	//查询审核通过的的产品档案信息
+	List<AregistrationformYWB> Selectcx(String toexamine);
 }

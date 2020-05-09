@@ -17,13 +17,14 @@ public class AregistrationformYWB {
 	private String filingtime;//建档时间
 	private String toexamine;//'未审核 通过审核
 	private String reviewedby;//'核审人',
-	public AregistrationformYWB() {
-		super();
-	}
+	private String  categoryname;
+	private String  gradelevelname;
+	private String productmanagername;
 	public AregistrationformYWB(int productID, String productname, String productclassification, int productlevel,
 			String manufacturer, String unitmeasurement, int measuredvalue, String guaranteedate, String ddescribe,
 			int marketvalue, int carketvalue, String productmanager, String registrant, String filingtime,
-			String toexamine, String reviewedby) {
+			String toexamine, String reviewedby, String categoryname, String gradelevelname,
+			String productmanagername) {
 		super();
 		this.productID = productID;
 		this.productname = productname;
@@ -41,6 +42,12 @@ public class AregistrationformYWB {
 		this.filingtime = filingtime;
 		this.toexamine = toexamine;
 		this.reviewedby = reviewedby;
+		this.categoryname = categoryname;
+		this.gradelevelname = gradelevelname;
+		this.productmanagername = productmanagername;
+	}
+	public AregistrationformYWB() {
+		super();
 	}
 	public int getProductID() {
 		return productID;
@@ -138,5 +145,25 @@ public class AregistrationformYWB {
 	public void setReviewedby(String reviewedby) {
 		this.reviewedby = reviewedby;
 	}
+	public String getCategoryname() {
+		return categoryname;
+	}
+	public void setCategoryname(String categoryname) {
+		this.categoryname = categoryname;
+	}
+	public String getGradelevelname() {
+		return gradelevelname;
+	}
+	public void setGradelevelname(String gradelevelname) {
+		this.gradelevelname = gradelevelname;
+	}
+	public String getProductmanagername() {
+		return productmanagername;
+	}
+	public void setProductmanagername(String productmanagername) {
+		this.productmanagername = productmanagername;
+	}
+
+	
 	
 }
