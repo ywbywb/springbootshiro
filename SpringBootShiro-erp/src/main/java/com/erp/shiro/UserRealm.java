@@ -21,7 +21,7 @@ public class UserRealm extends AuthorizingRealm{
     System.out.println("执行授权逻辑");
 		
 		//给资源进行授权
-		SimpleAuthorizationInfo  info=new SimpleAuthorizationInfo();
+		SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
 		
 		//添加资源授权字符串   filterMap.put("/add", "perms[user:add]");
 		//到数据库查询当前登录用户授权字符串

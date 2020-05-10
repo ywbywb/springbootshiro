@@ -1,6 +1,4 @@
 package com.erp.controller;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.erp.pojo.AregistrationformYWB;import com.erp.pojo.CategoryYWB;
 import com.erp.pojo.Gradelevel;
 import com.erp.pojo.ProductmanagerYWB;
-import com.erp.pojo.Users;
 import com.erp.service.ProductCpLhwService;
 
 @Controller
