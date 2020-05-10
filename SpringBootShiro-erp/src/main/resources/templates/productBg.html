@@ -61,26 +61,26 @@
                       <tr>
                         <th>产品编号</th>
                         <th>产品名称</th>
-                        <th>用途类型</th>
-                        <th>供应商</th>
-                        <th>单位</th>
+                        <th>产品类别</th>
+                        <th>制造商</th>
+                        <th>产品经理</th>
                         <th>产品档次</th>
-                        <th>市场单价</th>
+                        <th>市场价</th>
                         <th>档案变更</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr v-for="file in list" >
-                        <td>{{file.product_id}}</td>
-                        <td>{{file.product_name}}</td>
-                        <td>{{file.tname}}</td>
-                       	<td>{{file.factory_name}}</td>
-                        <td>{{file.amount_unit}}</td>
-                        <td>{{file.pname}}</td>
-                       	<td>{{file.list_price}}</td>
+                        <td>{{file.productID}}</td>
+                        <td>{{file.productname}}</td>
+                        <td>{{file.categoryname}}</td>
+                       	<td>{{file.manufacturer}}</td>
+                        <td>{{file.gradelevelname}}</td>
+                        <td>{{file.productmanagername}}</td>
+                       	<td>{{file.registrant}}</td>
                         <td>
                           <div class="btn-group">
-                             <button type="button" class="btn btn-primary  btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg" @click="Selidxx(file.product_id)">产品档案变更</button>
+                             <button type="button" class="btn btn-primary  btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg" @click="Selectid(file.productID)">产品档案变更</button>
                           </div>
                         </td>
                       </tr>
@@ -97,65 +97,49 @@
                     	 <form action="#" method="post">
 							  <div class="form-group">
 					            <label for="message-text" class="control-label">产品编号:</label>
-					            <span style="color:red" name="product_id">{{updFile.product_id}}</span>
+					            <span style="color:red" name="productID">{{updFile.productID}}</span>
 					            <label for="message-text" class="control-label">产品名称:</label>
-					             <span style="color:red" name="product_name">{{updFile.product_name}}</span>
+					             <span style="color:red" name="productname">{{updFile.productname}}</span>
 					             <label for="message-text" class="control-label">制造商:</label>
-					             <input type="text" name="factory_name" v-model="updFile.factory_name">
+					             <input type="text" name="manufacturer" v-model="updFile.manufacturer">
 					          </div>
 					          <div class="form-group">
-					            <label for="message-text">用途类型:</label>
-								<span name="tid">{{updFile.tname}}</span>
+					            <label for="message-text">产品类别:</label>
+								<span name="productclassification">{{updFile.categoryname}}</span>
 								
 								<label for="message-text" >档次级别:</label>
-					            <select  name="pid" v-model="updFile.pid" style="width: 200px">
-										<option value="1" >高档</option>
-										<option value="2">中档 </option>
-										<option value="3">低档</option>
+					            <select  name="productlevel" v-model="updFile.productlevel" style="width: 200px">
+										<option value="1" >高档食品</option>
+										<option value="2">精选食品 </option>
+										<option value="3">已损坏</option>
 								</select>
 					          </div>
 					           <div class="form-group">
-					           <label for="message-text" class="control-label">产品简称:</label>
-					             <input type="text" name="product_nick" v-model="updFile.product_nick">
-					             
+					           <label for="message-text" class="control-label">产品经理:</label>
+					             	<span name="productmanager">{{updFile.productmanagername}}</span>
 					            <label for="message-text" class="control-label">计量单位:</label>
-					             <input type="text" name="personal_unit" v-model="updFile.personal_unit">
+					             <input type="text" name="unitmeasurement" v-model="updFile.unitmeasurement">
 					             
 					            <label for="message-text" class="control-label">计量值:</label>
-					             <input type="text" name="personal_value" v-model="updFile.personal_value">
+					             <input type="text" name="measuredvalue" v-model="updFile.measuredvalue">
 					          </div>
 					          <div class="form-group">
-					            <label for="message-text" class="control-label">供应商集合:</label>
-					             <input type="text" name="provider_group" v-model="updFile.provider_group">
-					            <label for="message-text" class="control-label">保修期:</label>
-					             <input type="text" name="warranty" v-model="updFile.warranty">
-					            <label for="message-text" class="control-label">代替者名称:</label>
-					             <input type="text" name="twin_name" v-model="updFile.twin_name">
-					          </div>
-					          <div class="form-group">
-					            <label for="message-text" class="control-label">替代品编号:</label>
-					             <input type="text" name="twin_id" v-model="updFile.twin_id">
-					            <label for="message-text" class="control-label">生命周期:</label>
-					             <input type="text" name="lifecycle" v-model="updFile.lifecycle">
-					            <label for="message-text" class="control-label">市场单价:</label>
-					             <span name="list_price">{{updFile.list_price}}</span>
-					          </div>
-					          <div class="form-group">
-					            <label for="message-text" class="control-label">计划成本单价:</label>
-					             <span name="cost_price">{{updFile.cost_price}}</span>
-					            <label for="message-text" class="control-label">成本单价:</label>
-					              <span name="real_cost_price">{{updFile.real_cost_price}}</span>
-					            <label for="message-text" class="control-label">单位:</label>
-					             <input type="text" name="amount_unit" v-model="updFile.amount_unit">
-					          </div>
-					          <div class="form-group">
+					            <label for="message-text" class="control-label">登记人:</label>
+					             <input type="text" name="registrant" v-model="updFile.registrant">
+					            <label for="message-text" class="control-label">保质日期:</label>
+					             <input type="text" name="guaranteedate" v-model="updFile.guaranteedate">
 					            <label for="message-text" class="control-label">产品描述:</label>
-					             <input type="text" name="product_describe" v-model="updFile.product_describe">
-					            <label for="message-text" class="control-label">产品经理:</label>
-					             <input type="text" name="responsible_person" v-model="updFile.responsible_person">
-					            <label for="message-text" class="control-label">变更人:</label>
-					             <input type="text" name="changer" v-model="updFile.changer">
+					             <input type="text" name="ddescribe" v-model="updFile.ddescribe">
 					          </div>
+					          <div class="form-group">
+					            <label for="message-text" class="control-label">市场价:</label>
+					             <span name="marketvalue">{{updFile.marketvalue}}</span>
+					            <label for="message-text" class="control-label">成本价:</label>
+					              <span name="carketvalue">{{updFile.carketvalue}}</span>
+					            <label for="message-text" class="control-label">建档时间:</label>
+					              <span name="filingtime">{{updFile.filingtime}}</span>
+					          </div>
+					          
 		        </form>
                       </div>
                       <div class="modal-footer">
@@ -203,42 +187,36 @@ $(function(){
 				data:{
 					list:[],
 					updFile:[],
-					product_id:'',
-					product_name:'',
-					factory_name:'',
-					tid:'',
-					pid:'',
-					product_nick:'',
-					personal_unit:'',
-					personal_value:'',
-					provider_group:'',
-					warranty:'',
-					twin_name:'',
-					twin_id:'',
-					lifecycle:'',
-					list_price:'',
-		            cost_price:'',
-		            real_cost_price:'',
-		            amount_unit:'',
-		            product_describe:'',
-		            responsible_person:'',
-		            changer:''
+					productID:'',
+					productname:'',
+					productclassification:'',
+					productlevel:'',
+					manufacturer:'',
+					unitmeasurement:'',
+					measuredvalue:'',
+					guaranteedate:'',
+					ddescribe:'',
+					marketvalue:'',
+					carketvalue:'',
+					productmanager:'',
+					registrant:'',
+					filingtime:'',
 				},
 				mounted(){//初始化显示完成调用
-					this.selectId();
+					this.selectIdLhw();
 				},
 				methods:{
-					selectId(){
+					selectIdLhw(){
 						//发送异步请求，请求后端控制器，获取所有的品牌信息
-						axios.post("selectId2").then(res=>{
+						axios.post("Selectcx").then(res=>{
 							this.list=res.data;
 						}).catch(err=>{
 							console.log("请求失败");
 						})
 						
 					},
-					Selidxx(product_id){
-						axios.post('Selidxx?product_id='+product_id+'').then(res=>{
+					Selectid(productID){
+						axios.post('Selectid?productID='+productID+'').then(res=>{
 							this.updFile=res.data;
 						});
 					},
@@ -264,7 +242,7 @@ $(function(){
 								this.cost_price=this.real_cost_price=this.amount_unit=this.product_describe=
 								this.responsible_person=this.changer=''
 								
-								this.selectId();//再查询一次
+								this.selectIdLhw();//再查询一次
 								
 						}
 						});

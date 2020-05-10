@@ -40,4 +40,6 @@ public interface ProductCpLhwmapper {
 	int Selecttgshzs(String toexamine);
 	//查询审核通过的的产品档案信息
 	List<AregistrationformYWB> Selectcx(String toexamine);
+	//根据id查询产品档案信息
+    AregistrationformYWB  Selectid(String productID);
 }

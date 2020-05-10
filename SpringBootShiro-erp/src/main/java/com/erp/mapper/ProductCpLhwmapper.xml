@@ -72,7 +72,7 @@ WHERE productID=#{productID}
 SELECT a.ProductID,a.Productname,a.manufacturer,b.categoryname,c.Gradelevelname,d.productmanagername
 FROM  aregistrationform a,category b,Gradelevel c,productmanager d
 WHERE a.Productclassification=b.categoryid AND
-      a.Productlevel=c.Gradelevelname AND
+      a.Productlevel=c.Gradelevelid AND
       a.productmanager=d.productmanagerid AND
       Toexamine=#{toexamine}
 </select>
@@ -84,6 +84,15 @@ WHERE a.Productclassification=b.categoryid AND
       a.Productlevel=c.Gradelevelid AND
       a.productmanager=d.productmanagerid AND
       a.Toexamine='审核通过'
+</select>
+<!-- 通过产品id查询档案信息 -->
+<select id="Selectid" resultType="AregistrationformYWB">
+SELECT a.*,b.*,c.*,d.*
+FROM  aregistrationform a,category b,Gradelevel c,productmanager d
+WHERE a.Productclassification=b.categoryid AND
+      a.Productlevel=c.Gradelevelid AND
+      a.productmanager=d.productmanagerid AND
+      a.ProductID=#{ProductID}
 </select>
   </mapper>
   

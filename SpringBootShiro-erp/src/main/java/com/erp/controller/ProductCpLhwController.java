@@ -106,4 +106,11 @@ public int Selecttgshzs(@RequestParam("toexamine")String toexamine) {
 		List<AregistrationformYWB> list=service.Selectform();
 		return list;
 	}
+	//通过产品id查询档案信息
+	@RequestMapping("Selectid")
+	@ResponseBody
+	public AregistrationformYWB Selectid(String productID) {
+		AregistrationformYWB lhw=service.Selectid(productID);
+		return  lhw;
+	}
 }

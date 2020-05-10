@@ -88,6 +88,12 @@ public class ProductCpLhwServiceImpl implements ProductCpLhwService{
 		return mapper.Selectcx(toexamine);
 	}
 
+	@Override
+	public AregistrationformYWB Selectid(String productID) {
+		// TODO Auto-generated method stub
+		return mapper.Selectid(productID);
+	}
+
 
 	
 
