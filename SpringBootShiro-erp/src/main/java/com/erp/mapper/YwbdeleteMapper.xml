@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.erp.mapper.YwbdeleteMapper">
+  
+  <delete id="deleteAreg">
+  delete from aregistrationform  where ProductID=#{productID}
+  </delete>
+  
+  
+  <select id="ccc" resultType="AregistrationformYWB">
+      SELECT a.*,b.categoryname,c.Gradelevelname,d.productmanagername 
+      FROM aregistrationform a ,category b,Gradelevel c,productmanager d
+      WHERE a.Productclassification=b.categoryid AND
+            a.Productlevel=c.Gradelevelid AND
+            a.productmanager=d.productmanagerid;
+  </select>
+  </mapper>

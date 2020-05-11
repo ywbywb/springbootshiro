@@ -59,27 +59,27 @@
                     <thead>
                       <tr>
                         <th class="text-center">产品编号</th>
-                        <th class="text-center">产品名称</th>
-                        <th class="text-center">用途类型</th>
-                        <th class="text-center">供应商</th>
-                        <th class="text-center">单位</th>
+                        <th class="text-center">产品名字</th>
+                        <th class="text-center">产品类别</th>
+                        <th class="text-center">制造商</th>
                         <th class="text-center">产品档次</th>
-                        <th class="text-center">市场单价</th>
+                        <th class="text-center">市场价</th>
+                        <th class="text-center">审核状态</th>
                         <th class="text-center">操作</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr v-for="file in list" class="text-center">
-                        <td>{{file.product_id}}</td>
-                        <td>{{file.product_name}}</td>
-                        <td>{{file.tname}}</td>
-                       	<td>{{file.factory_name}}</td>
-                        <td>{{file.amount_unit}}</td>
-                        <td>{{file.pname}}</td>
-                       	<td>{{file.list_price}}</td>
+                        <td>{{file.productID}}</td>
+					    <td>{{file.productname}}</td>
+					    <td>{{file.categoryname}}</td>
+						<td>{{file.productmanagername}}</td>
+						<td>{{file.gradelevelname}}</td>
+						<td>{{file.marketvalue}}</td>
+						<td>{{file.toexamine}}</td>
                         <td>
                           <div class="btn-group">
-                             <button type="button" class="btn btn-primary  btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg" @click="deleteId(file.product_id)">
+                             <button type="button" class="btn btn-primary  btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg" @click="deleteId(file.productID)">
                              <span>永久删除</span>
                              </button>
                           </div>
@@ -120,15 +120,15 @@
 				methods:{
 					selectId(){
 						//发送异步请求，请求后端控制器，获取所有的产品信息
-						axios.post("selectAllProduct").then(res=>{
+						axios.post("ccc").then(res=>{
 							this.list=res.data;
 						}).catch(err=>{
 							console.log("请求失败");
 						})	
 					},
-					deleteId(id){
+					deleteId(productID){
 						if(confirm("是否永久删除此档案信息？")){
-						axios.get("yjDeleteProduct?product_id="+id+"").then(res=>{
+						axios.get("ywb?productID="+productID+"").then(res=>{
 							if(res.data>0){
 								alert("删除成功！");								
 							}
